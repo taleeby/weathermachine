@@ -1,7 +1,9 @@
 package au.com.alex.weather;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -41,9 +43,12 @@ public class Main implements CommandLineRunner {
     public void run(String... args) {
         LOG.info("EXECUTING : command line runner");
         try {
-        
+       
+        	Calendar cal = GregorianCalendar.getInstance();
         	List<Condition> conditions = new ArrayList<>();
-        	conditions.add(conditionManager.createCondition(cityManager.getCity("Sydney", "NSW", "Australia"), new Date()));
+        	conditions.add(conditionManager.createCondition(cityManager.getCity("Sydney", "NSW", "Australia"), cal.getTime()));
+        	cal.add(Calendar.DAY_OF_MONTH, 1);
+        	conditions.add(conditionManager.createCondition(cityManager.getCity("Sydney", "NSW", "Australia"), cal.getTime()));
         	conditions.add(conditionManager.createCondition(cityManager.getCity("Melbourne", "", "Australia"), new Date()));
         	conditions.add(conditionManager.createCondition(cityManager.getCity("Adelaide", "", "Australia"), new Date()));
         	conditions.add(conditionManager.createCondition(cityManager.getCity("London", "", "England"), new Date()));
@@ -57,7 +62,7 @@ public class Main implements CommandLineRunner {
         	System.out.println("   |   |  |   _   ||   |___   |   _   ||   |___ |   _   |  |   |  |   _   ||   |___ |   |  | |");
         	System.out.println("   |___|  |__| |__||_______|  |__| |__||_______||__| |__|  |___|  |__| |__||_______||___|  |_|");
         	System.out.println();
-        	System.out.println(" ===================================== T O D A Y  I S  ======================================");
+        	System.out.println(" ==========================================  I S  ===========================================");
         	System.out.println();
         	for (Condition condition : conditions) {
         		System.out.println(condition);
