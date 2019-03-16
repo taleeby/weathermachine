@@ -57,8 +57,8 @@ For now very simple implementations of the above have been added.
 
 ### Possible Idea for ConvolutionalConditionGenerator 
 
-I have an idea for a `ConvolutionalConditionGenerator` which can achieve these these special requirements;
-With the following outcomes to be acheived;
+I have an idea for a `ConvolutionalConditionGenerator` which can achieve these these advanced requirements;
+
  1. Adjacent cities have similar weather 
  2. Gradual changes in weather are exhibited at any location
  3. Adjacent times have similar weather 
@@ -66,9 +66,9 @@ With the following outcomes to be acheived;
  5. Seasonal changes are apparent 
  6. Year on year changes are apparent 
 
-One solution is to apply multiple time incremented convolutional matrixes where each matrix implements one of the requirements 1 to 6 above. 
+One solution is to apply multiple time incremented convolutional matrix transforms on a global weather map implemented as a multi dimensional matrix including time as a feature. Each matrix transform would implement one of the requirements 1 to 6 above. 
 
-Why implement such a complex solution, well the changes could be gradually localized and additive per time step giving the perception of continuity which we experience in real life. For example if this weather program is used in a rally car driving game, the driver should not experience drastically different and sharp changes in weather when cruising at 150km/h between two cities. The driver should experience gradually changing weather over time.
+Why implement such a complex solution, well the changes could be gradually localized and additive per time step giving the perception of continuity which we experience in real life. For example if this weather program is used in a rally car driving game, the driver should not experience drastically different and sharp changes in weather when cruising at 150km/h between two cities over 4 hours. Instead the driver should experience gradually changing weather.
 
 There is a very interesting project at https://jaxenter.com/convolutional-lstm-deeplearning4j-146157.html encapsulating solutions for many of these ideas. 
 
